@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | CODEC Club</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* ============================================= */
+      /*                 BASE STYLES                   */
+      /* ============================================= */
+      @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+      :root {
+        --primary-color: #a64ac9;
+        --secondary-color: #f47ce8;
+        --accent-color: #ffcc00;
+        --dark-bg: #000000;
+        --darker-bg: #111111;
+        --text-color: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Quicksand", sans-serif;
+        line-height: 1.6;
+        background-color: var(--dark-bg);
+        color: var(--text-color);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        position: relative;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      body.no-scroll {
+        overflow: hidden;
+      }
+
+      /* ============================================= */
+      /*                 ANIMATIONS                    */
+      /* ============================================= */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(0deg);
+        }
+        75% {
+          transform: translateY(-10px) rotate(-2deg);
+        }
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* ============================================= */
+      /*                 HEADER STYLES                 */
+      /* ============================================= */
+      header {
+        background-color: var(--dark-bg);
+        color: var(--text-color);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex: 1;
+      }
+
+      .logo-text {
+        font-size: 1.8rem;
+        color: var(--secondary-color);
+        font-weight: 700;
+        white-space: nowrap;
+        text-shadow: 0 0 10px rgba(244, 124, 232, 0.5);
+        transition: all 0.3s ease;
+      }
+
+      .logo-text:hover {
+        text-shadow: 0 0 15px rgba(244, 124, 232, 0.8);
+      }
+
+      .logo-text span {
+        color: var(--primary-color);
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-icon:hover {
+        transform: rotate(15deg) scale(1.1);
+      }
+
+      /* ============================================= */
+      /*               CONTACT HEADER                  */
+      /* ============================================= */
+      .contact-header {
+        width: 100%;
+        height: 500px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+        animation: fadeIn 1s ease-out;
+      }
+
+      .contact-header-image {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("CODECBACKGROUND.webp") no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-header-image h1 {
+        font-size: 4rem;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 0 20px rgba(148, 71, 177, 0.8);
+        font-family: "Poppins", sans-serif;
+        animation: pulse 3s infinite ease-in-out;
+      }
+
+      /* ============================================= */
+      /*               NAVIGATION MENU                 */
+      /* ============================================= */
+      /* Burger Menu */
+      .burger {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+        z-index: 101;
+        padding: 5px;
+        width: 40px;
+        height: 40px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .burger:hover {
+        transform: scale(1.1);
+      }
+
+      .burger-line {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+
+      .burger.active .burger-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .burger.active .burger-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .burger.active .burger-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Navigation Links */
+      nav {
+        display: flex;
+      }
+
+      #nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 15px;
+      }
+
+      #nav-links li {
+        position: relative;
+      }
+
+      #nav-links li a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: bold;
+        padding: 0.75rem 1rem;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        display: block;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+      }
+
+      #nav-links li::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        transition: width 0.3s ease;
+      }
+
+      #nav-links li:hover::before,
+      #nav-links li:focus-within::before {
+        width: 100%;
+      }
+
+      #nav-links li:hover a,
+      #nav-links li:focus-within a {
+        color: var(--secondary-color);
+        text-shadow: 0 0 5px rgba(244, 124, 232, 0.7);
+      }
+
+      /* ============================================= */
+      /*               MAIN CONTAINER                  */
+      /* ============================================= */
+      .container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 2rem auto;
+        padding: 0 2rem;
+        max-width: 1200px;
+        gap: 60px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ============================================= */
+      /*               CONTACT FORM                    */
+      /* ============================================= */
+      .contact-form {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+        height: 600px;
+        padding: 2rem;
+        background-color: transparent;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 15px;
+        margin: 1rem;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(166, 74, 201, 0.2);
+        box-shadow: 0 10px 30px rgba(166, 74, 201, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: fadeIn 0.8s ease-out 0.2s both;
+      }
+
+      .contact-form:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(166, 74, 201, 0.2);
+      }
+
+      .contact-form::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(166, 74, 201, 0.1),
+          transparent 70%
+        );
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .contact-form h2 {
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        text-align: center;
+        color: var(--text-color);
+        position: relative;
+      }
+
+      .contact-form h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .form-group {
+        position: relative;
+        margin-bottom: 1.8rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        font-family: "Quicksand", sans-serif;
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #333;
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: transparent;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(10px);
+        color: var(--text-color);
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(166, 74, 201, 0.3);
+      }
+
+      .contact-form textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .contact-form label {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        color: #aaa;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        background-color: var(--darker-bg);
+        padding: 0 5px;
+        transform-origin: left center;
+      }
+
+      .contact-form input:focus + label,
+      .contact-form textarea:focus + label,
+      .contact-form input:not(:placeholder-shown) + label,
+      .contact-form textarea:not(:placeholder-shown) + label {
+        transform: translateY(-1.7rem) scale(0.85);
+        color: var(--secondary-color);
+      }
+
+      /* ============================================= */
+      /*             CONTACT INFO SECTION              */
+      /* ============================================= */
+      .content-map-section {
+        flex: 1;
+        min-width: 300px;
+        max-width: 600px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        animation: fadeIn 0.8s ease-out 0.4s both;
+      }
+
+      /* Contact Info Grid */
+      .contact-info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      /* Contact Info Card */
+      .contact-info-card {
+        background-color: transparent;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(10px);
+        margin-top: 15px;
+        width: 100%;
+        padding: 25px;
+        border-radius: 10px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(166, 74, 201, 0.2);
+      }
+
+      .contact-info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(166, 74, 201, 0.2);
+        border-color: var(--primary-color);
+      }
+
+      .contact-info-card i {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-info-card:hover i {
+        transform: scale(1.2);
+        color: var(--secondary-color);
+      }
+
+      .contact-info-card h3 {
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 5px;
+        color: var(--secondary-color);
+        transition: all 0.3s ease;
+      }
+
+      .contact-info-card:hover h3 {
+        text-shadow: 0 0 10px rgba(244, 124, 232, 0.5);
+      }
+
+      .contact-info-card p {
+        color: #ccc;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact-info-card:hover p {
+        color: var(--text-color);
+      }
+
+      /* Map Container */
+      .map-container {
+        width: 100%;
+        height: 280px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(166, 74, 201, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .map-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(166, 74, 201, 0.4);
+        border-color: var(--primary-color);
+      }
+
+      .map-container iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* ============================================= */
+      /*                  BUTTONS                      */
+      /* ============================================= */
+      .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      button {
+        position: relative;
+        padding: 0.8rem 1.8rem;
+        min-width: 140px;
+        min-height: 48px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: var(--text-color);
+        border: none;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 13px;
+        cursor: pointer;
+        overflow: hidden;
+        transition-property: all;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        z-index: 1;
+      }
+
+      button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      button:hover::before {
+        opacity: 1;
+      }
+
+      button:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        border-radius: 35px;
+        box-shadow: 0 10px 20px rgba(166, 74, 201, 0.4);
+      }
+
+      button.clear-btn {
+        background: var(--darker-bg);
+        border: 1px solid var(--primary-color);
+      }
+
+      button.clear-btn::before {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--darker-bg)
+        );
+      }
+
+      /* ============================================= */
+      /*                  FOOTER                       */
+      /* ============================================= */
+      .footer {
+        background-color: var(--dark-bg);
+        color: var(--text-color);
+        padding: 40px 20px;
+        font-family: "Poppins", sans-serif;
+        position: relative;
+        margin-top: auto;
+        border-top: 1px solid rgba(166, 74, 201, 0.2);
+        animation: fadeIn 0.8s ease-out 0.6s both;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at center,
+          rgba(166, 74, 201, 0.05),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-section h3 {
+        color: var(--secondary-color);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 3px;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        display: inline-block;
+        padding: 8px 0;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary-color);
+        transform: translateX(5px);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: var(--darker-bg);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-links a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .social-links a:hover::before {
+        opacity: 1;
+      }
+
+      .social-links a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(166, 74, 201, 0.3);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 30px;
+        border-top: 1px solid rgba(166, 74, 201, 0.1);
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      /* Footer Logo Styles */
+      .footer-logo {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background: rgba(166, 74, 201, 0.1);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(166, 74, 201, 0.2);
+        margin-right: 20px;
+      }
+
+      .footer-image {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        animation: float 6s ease-in-out infinite;
+        filter: drop-shadow(0 5px 15px rgba(166, 74, 201, 0.4));
+        transition: transform 0.3s ease;
+      }
+
+      .footer-image:hover {
+        transform: scale(1.05) rotate(5deg);
+        filter: drop-shadow(0 8px 20px rgba(166, 74, 201, 0.6));
+        animation: float 3s ease-in-out infinite, pulse 2s infinite;
+      }
+
+      /* ============================================= */
+      /*               MOBILE STYLES                   */
+      /* ============================================= */
+      @media (max-width: 768px) {
+        /* Header adjustments */
+        header {
+          padding: 1rem;
+        }
+
+        /* Contact Header */
+        .contact-header {
+          height: 200px;
+          margin-top: 60px;
+        }
+
+        .contact-header-image h1 {
+          font-size: 2.5rem;
+        }
+
+        /* Burger menu */
+        .burger {
+          display: flex;
+        }
+
+        /* Navigation */
+        #nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.95);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 25px;
+          transition: right 0.3s ease-in-out;
+          margin: 0;
+          padding: 0;
+          /* Remove backdrop-filter for mobile */
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+
+        #nav-links.show {
+          right: 0;
+        }
+
+        #nav-links li::before {
+          height: 1px;
+          bottom: -5px;
+        }
+
+        /* Container adjustments */
+        .container {
+          flex-direction: column;
+          padding: 0 1rem;
+          gap: 30px;
+          margin: 1rem auto;
+        }
+
+        /* Make both sections full width on mobile */
+        .contact-form,
+        .content-map-section {
+          max-width: 100%;
+          height: auto;
+          width: 100%;
+          /* Remove backdrop-filter for mobile */
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+
+        /* Adjust form elements for mobile */
+        .form-group {
+          margin-bottom: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+          font-size: 16px;
+          padding: 0.8rem;
+          /* Remove backdrop-filter for mobile */
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+
+        /* Adjust contact info grid for mobile */
+        .contact-info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        /* Adjust buttons for mobile */
+        .button-group {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        button {
+          width: 100%;
+        }
+
+        /* Adjust map height for mobile */
+        .map-container {
+          height: 250px;
+        }
+
+        /* Footer adjustments */
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 30px;
+        }
+
+        .footer-section h3::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        .footer-links {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
+
+        /* Footer logo adjustments */
+        .footer-logo {
+          margin-right: 0;
+          margin-bottom: 20px;
+          width: 100%;
+        }
+
+        .footer-image {
+          width: 150px;
+          height: 150px;
+        }
+      }
+
+      /* ============================================= */
+      /*                     MAP                       */
+      /* ============================================= */
+
+      .map-container {
+        background-color: transparent;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 450px;
+        border: 0;
+        filter: invert(90%) hue-rotate(180deg); /* Dark mode trick */
+        border-radius: 8px;
+      }
+
+      /* ============================================= */
+      /*             PARTICLES BACKGROUND              */
+      /* ============================================= */
+      #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -2; /* Changed to -2 to be behind the new particle containers */
+        background-color: var(--dark-bg);
+      }
+
+      /* New Particle Containers */
+      .particle-container,
+      .bg-particle-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .particle-container {
+        z-index: 9998; /* For cursor particles */
+      }
+
+      .bg-particle-container {
+        z-index: -1; /* Between particles-js and content */
+      }
+
+      /* Background Particles */
+      .bg-particle {
+        position: absolute;
+        border-radius: 50%;
+        animation: bg-particle-float linear infinite;
+        will-change: transform;
+        background-color: hsla(280, 80%, 70%, 0.2);
+      }
+
+      @keyframes bg-particle-float {
+        0% {
+          transform: translate(0, 0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translate(var(--tx), var(--ty));
+          opacity: 0;
+        }
+      }
+
+      /* Cursor Particles */
+      .cursor-particle {
+        position: absolute;
+        border-radius: 50%;
+        animation: cursor-particle-float 1s ease-out forwards;
+        will-change: transform;
+        background-color: hsla(280, 80%, 70%, 0.8);
+      }
+
+      @keyframes cursor-particle-float {
+        to {
+          transform: translate(var(--tx), var(--ty));
+          opacity: 0;
+        }
+      }
+
+      .cursor-trail {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(166, 74, 201, 0.2);
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease;
+      }
+
+      /* Make sure content is above all particles */
+      header,
+      .container,
+      .footer {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ============================================= */
+      /*             ADDITIONAL ANIMATIONS             */
+      /* ============================================= */
+      /* Glow animation for interactive elements */
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 5px var(--primary-color);
+        }
+        50% {
+          box-shadow: 0 0 20px var(--secondary-color);
+        }
+        100% {
+          box-shadow: 0 0 5px var(--primary-color);
+        }
+      }
+
+      /* Apply glow animation to form on focus */
+      .contact-form:focus-within {
+        animation: glow 2s infinite;
+      }
+
+      /* Bounce animation for call-to-action elements */
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Apply bounce to important buttons */
+      button[type="submit"]:hover {
+        animation: bounce 0.8s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+
+    <header>
+      <div class="header-content">
+        <img src="Codec.png" alt="CODEC Club Logo" class="logo-icon" />
+        <h1 class="logo-text">COD<span>EC</span></h1>
+      </div>
+      <button class="burger" id="burger-button" aria-label="Menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+      <nav id="main-nav">
+        <ul id="nav-links">
+          <li><a href="HomePage.html" target="_blank">Home</a></li>
+          <li><a href="AboutUsPage.html" target="_blank">About</a></li>
+          <li><a href="TeamPage.html" target="_blank">Team</a></li>
+          <li><a href="EventsPage.html" target="_blank">Events</a></li>
+          <li>
+            <a href="ContactUsPage.html" class="active" target="_blank"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="contact-header">
+      <div class="contact-header-image">
+        <h1>Contact Us!</h1>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Contact Form (Left Side) -->
+      <div class="contact-form">
+        <h2>Get In Touch</h2>
+        <form
+          id="contactForm"
+          action="https://api.web3forms.com/submit"
+          method="post"
+        >
+          <input
+            type="hidden"
+            name="access_key"
+            value="13487db0-e965-41af-827c-1ea0f873cdda"
+          />
+
+          <div class="form-group">
+            <input
+              type="text"
+              name="full_name"
+              id="full_name"
+              placeholder=" "
+              required
+            />
+            <label for="full_name">Full Name</label>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder=" "
+              required
+            />
+            <label for="email">Email Address</label>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder=" "
+              required
+            />
+            <label for="phone">Phone Number</label>
+          </div>
+
+          <div class="form-group">
+            <textarea
+              name="message"
+              id="message"
+              placeholder=" "
+              required
+            ></textarea>
+            <label for="message">Your Message</label>
+          </div>
+
+          <div class="button-group">
+            <button type="submit">Send Message</button>
+            <button type="button" class="clear-btn" id="clear-btn">
+              Clear Form
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Content/Map Section (Right Side) -->
+      <div class="content-map-section">
+        <div class="contact-info-grid">
+          <div class="contact-info-card">
+            <i class="fas fa-phone"></i>
+            <h3>Phone</h3>
+            <p>+91 74703-10460</p>
+          </div>
+
+          <div class="contact-info-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>atharvagour07@icloud.com</p>
+          </div>
+
+          <div class="contact-info-card">
+            <i class="fab fa-whatsapp"></i>
+            <h3>WhatsApp</h3>
+            <p>+91 74703-10460</p>
+          </div>
+
+          <div class="contact-info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Location</h3>
+            <p>Symbiosis University of Applied Sciences, Indore</p>
+          </div>
+        </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.328709999603!2d75.80346531427861!3d22.753923985090765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3963029c6c5f5c3f%3A0x4a1c0a7f5a3b7e1c!2sSymbiosis%20University%20of%20Applied%20Sciences!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="Codec.png" alt="CODEC Club Logo" class="footer-image" />
+        </div>
+
+        <div class="footer-info">
+          <h3>CONTACT US</h3>
+          <p>
+            Symbiosis University of Applied Sciences<br />
+            Indore, Super Corridor<br />
+            INDIA<br />
+            Phone: +91 74703-10460<br />
+            Email: atharvagour07@icloud.com
+          </p>
+
+          <div class="social-links">
+            <a href="https://www.instagram.com/" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.facebook.com/" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="mailto:atharvagour07@icloud.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CODEC Club. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Particles.js configuration
+        particlesJS("particles-js", {
+          particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#a64ac9" },
+            shape: { type: "circle" },
+            opacity: {
+              value: 0.5,
+              random: true,
+              anim: { enable: true, speed: 1 },
+            },
+            size: { value: 3, random: true, anim: { enable: true, speed: 2 } },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: "#a64ac9",
+              opacity: 0.3,
+              width: 1,
+            },
+            move: { enable: true, speed: 1 },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: { enable: true, mode: "grab" },
+              onclick: { enable: true, mode: "push" },
+              resize: true,
+            },
+          },
+        });
+
+        // Mobile menu functionality
+        const burgerButton = document.getElementById("burger-button");
+        const navLinks = document.getElementById("nav-links");
+
+        burgerButton.addEventListener("click", function () {
+          navLinks.classList.toggle("show");
+          burgerButton.classList.toggle("active");
+          document.body.classList.toggle("no-scroll");
+        });
+
+        // Close menu when clicking on nav links
+        document.querySelectorAll("#nav-links a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("show");
+            burgerButton.classList.remove("active");
+            document.body.classList.remove("no-scroll");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            !e.target.closest("#main-nav") &&
+            !e.target.closest("#burger-button")
+          ) {
+            navLinks.classList.remove("show");
+            burgerButton.classList.remove("active");
+            document.body.classList.remove("no-scroll");
+          }
+        });
+
+        // Clear form functionality
+        const clearBtn = document.getElementById("clear-btn");
+        const contactForm = document.getElementById("contactForm");
+
+        if (clearBtn && contactForm) {
+          clearBtn.addEventListener("click", function () {
+            contactForm.reset();
+            document.querySelectorAll(".form-group label").forEach((label) => {
+              label.style.transform = "";
+              label.style.color = "#aaa";
+            });
+          });
+        }
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        /* ============================================= */
+        /*              ENHANCED CURSOR EFFECT           */
+        /* ============================================= */
+
+        // Create main cursor trail
+        const cursor = document.createElement("div");
+        cursor.className = "cursor-trail";
+        document.body.appendChild(cursor);
+
+        // Create particle container
+        const particleContainer = document.createElement("div");
+        particleContainer.className = "particle-container";
+        document.body.appendChild(particleContainer);
+
+        // Create background particle container
+        const bgParticleContainer = document.createElement("div");
+        bgParticleContainer.className = "bg-particle-container";
+        document.body.appendChild(bgParticleContainer);
+
+        // Track mouse position
+        let mouseX = 0;
+        let mouseY = 0;
+
+        /* ============================================= */
+        /*              BACKGROUND PARTICLES             */
+        /* ============================================= */
+
+        // Create initial background particles (increased count)
+        function createBackgroundParticles() {
+          const particleCount = 100; // Increased from original
+
+          for (let i = 0; i < particleCount; i++) {
+            const bgParticle = document.createElement("div");
+            bgParticle.className = "bg-particle";
+
+            // Random position
+            const posX = Math.random() * window.innerWidth;
+            const posY = Math.random() * window.innerHeight;
+
+            // Random size (1px to 3px)
+            const size = 1 + Math.random() * 2;
+
+            // Random animation duration (10s to 30s)
+            const duration = 10 + Math.random() * 20;
+
+            // Random delay (0s to 5s)
+            const delay = Math.random() * 5;
+
+            // Random movement direction
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 50 + Math.random() * 150;
+            const moveX = Math.cos(angle) * distance;
+            const moveY = Math.sin(angle) * distance;
+
+            // Apply styles
+            bgParticle.style.cssText = `
+        left: ${posX}px;
+        top: ${posY}px;
+        width: ${size}px;
+        height: ${size}px;
+        background-color: hsla(${280 + Math.random() * 40}, 80%, 70%, ${
+              0.2 + Math.random() * 0.3
+            });
+        animation-duration: ${duration}s;
+        animation-delay: ${delay}s;
+        transform: translate(${moveX}px, ${moveY}px);
+      `;
+
+            bgParticleContainer.appendChild(bgParticle);
+          }
+        }
+
+        /* ============================================= */
+        /*              CURSOR PARTICLES                 */
+        /* ============================================= */
+
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          // Update cursor position
+          cursor.style.left = `${mouseX}px`;
+          cursor.style.top = `${mouseY}px`;
+
+          // Create particles (reduced frequency for performance)
+          if (Math.random() > 0.3) {
+            createParticle(mouseX, mouseY);
+          }
+        });
+
+        function createParticle(x, y) {
+          const particle = document.createElement("div");
+          particle.className = "cursor-particle";
+
+          // Random direction and distance
+          const angle = Math.random() * Math.PI * 2;
+          const distance = 5 + Math.random() * 15;
+          const tx = Math.cos(angle) * distance;
+          const ty = Math.sin(angle) * distance;
+
+          // Random size and color variation
+          const size = 3 + Math.random() * 5;
+          const hue = 280 + Math.random() * 40; // Purple/pink range
+
+          particle.style.cssText = `
+      --tx: ${tx}px;
+      --ty: ${ty}px;
+      left: ${x}px;
+      top: ${y}px;
+      width: ${size}px;
+      height: ${size}px;
+      background-color: hsla(${hue}, 80%, 70%, 0.8);
+    `;
+
+          particleContainer.appendChild(particle);
+
+          // Remove after animation completes
+          setTimeout(() => {
+            particle.remove();
+          }, 1000);
+        }
+
+        /* ============================================= */
+        /*              BUTTON HOVER EFFECTS             */
+        /* ============================================= */
+
+        document.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("mouseenter", () => {
+            // Create extra particles on button hover
+            const rect = button.getBoundingClientRect();
+            for (let i = 0; i < 10; i++) {
+              createParticle(
+                rect.left + Math.random() * rect.width,
+                rect.top + Math.random() * rect.height
+              );
+            }
+          });
+        });
+
+        /* ============================================= */
+        /*              CLEAR FORM FUNCTION              */
+        /* ============================================= */
+
+        const clearBtn = document.getElementById("clear-btn");
+        const contactForm = document.getElementById("contactForm");
+
+        if (clearBtn && contactForm) {
+          clearBtn.addEventListener("click", function () {
+            // Reset all form fields
+            contactForm.reset();
+
+            // Manually reset the floating labels
+            const formGroups = document.querySelectorAll(".form-group");
+            formGroups.forEach((group) => {
+              const input = group.querySelector("input, textarea");
+              const label = group.querySelector("label");
+
+              if (input && label) {
+                // Remove focus and reset label position
+                input.blur();
+                label.style.transform = "";
+                label.style.color = "#aaa";
+              }
+            });
+
+            // Visual feedback
+            clearBtn.textContent = "Form Cleared!";
+            setTimeout(() => {
+              clearBtn.textContent = "Clear Form";
+            }, 1500);
+          });
+        }
+
+        /* ============================================= */
+        /*              INITIALIZATION                   */
+        /* ============================================= */
+
+        // Create background particles when page loads
+        createBackgroundParticles();
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+          // Clear and recreate background particles
+          bgParticleContainer.innerHTML = "";
+          createBackgroundParticles();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,884 @@
+{
+    "2025": [
+        {
+            "title": "Core Team",
+            "members": [
+                {
+                    "name": "Atharva Gour",
+                    "role": "Club President",
+                    "image": "/pics/Atharva.jpg",
+                    "email": "atharvagour07@gmail.com",
+                    "linkedin": "https://www.linkedin.com/in/atharva-gour",
+                    "github": "https://github.com/Atharva708"
+                },
+                {
+                    "name": "Jay Jain",
+                    "role": "Club Vice President",
+                    "image": "/pics/JayJain.jpeg",
+                    "email": "",
+                    "linkedin": "https://www.linkedin.com/in/j-jay",
+                    "github": ""
+                },
+                {
+                    "name": "Akshat Thakkar",
+                    "role": "Tech Lead",
+                    "image": "/pics/AkshatThakkar.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Management Team",
+            "members": [
+                {
+                    "name": "Kushagra Rathore",
+                    "role": "Management Head",
+                    "image": "/pics/Kushagraha_Rathore.PNG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Daksh Joshi",
+                    "role": "Management Associate",
+                    "image": "/pics/Daksh_Joshi.JPG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aryan Choudhary",
+                    "role": "Jr. Management Associate",
+                    "image": "/pics/Aryan Choudhary - Jr. Management Associate.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Marketing Team",
+            "members": [
+                {
+                    "name": "Harshita Maheshwari",
+                    "role": "Marketing Head",
+                    "image": "/pics/Harshita.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Darshil Khandelwal",
+                    "role": "Marketing Associate",
+                    "image": "/pics/Darshil.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aditi Nigam",
+                    "role": "Jr. Marketing Associate",
+                    "image": "/pics/Aditi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Media Team",
+            "members": [
+                {
+                    "name": "Riddhi Bhawsar",
+                    "role": "Media Head",
+                    "image": "/pics/Riddhi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Kavya Joshi",
+                    "role": "Media Associate",
+                    "image": "/pics/Kavya.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Suyash Jain",
+                    "role": "Jr. Media Associate",
+                    "image": "/pics/Suyash Vasal Jain - Jr. Media Associate.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Web Development Team",
+            "members": [
+                {
+                    "name": "Rohit Manna",
+                    "role": "Web Development Head",
+                    "image": "/pics/Rohit_Manna.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Harshwardhan Trivedi",
+                    "role": "Web Development Associate",
+                    "image": "/pics/Harshwardhan.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Astha Padmawar",
+                    "role": "Jr. Web Dev Associate",
+                    "image": "/pics/Astha.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        }
+    ],
+    "2024": [
+        {
+            "title": "Core Team",
+            "members": [
+                {
+                    "name": "Atharva Gour",
+                    "role": "Club President",
+                    "image": "Atharva.jpg",
+                    "email": "atharvagour07@gmail.com",
+                    "linkedin": "https://www.linkedin.com/in/atharva-gour",
+                    "github": "https://github.com/Atharva708"
+                },
+                {
+                    "name": "Jay Jain",
+                    "role": "Club Vice President",
+                    "image": "JayJain.jpeg",
+                    "email": "",
+                    "linkedin": "https://www.linkedin.com/in/j-jay",
+                    "github": ""
+                },
+                {
+                    "name": "Akshat Thakkar",
+                    "role": "Tech Lead",
+                    "image": "AkshatThakkar.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Management Team",
+            "members": [
+                {
+                    "name": "Kushagra Rathore",
+                    "role": "Management Head",
+                    "image": "Kushagraha_Rathore.PNG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Daksh Joshi",
+                    "role": "Management Associate",
+                    "image": "Daksh_Joshi.JPG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aryan Choudhary",
+                    "role": "Jr. Management Associate",
+                    "image": "Aryan Choudhary - Jr. Management Associate.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Marketing Team",
+            "members": [
+                {
+                    "name": "Harshita Maheshwari",
+                    "role": "Marketing Head",
+                    "image": "Harshita.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Darshil Khandelwal",
+                    "role": "Marketing Associate",
+                    "image": "Darshil.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aditi Nigam",
+                    "role": "Jr. Marketing Associate",
+                    "image": "Aditi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Media Team",
+            "members": [
+                {
+                    "name": "Riddhi Bhawsar",
+                    "role": "Media Head",
+                    "image": "Riddhi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Kavya Joshi",
+                    "role": "Media Associate",
+                    "image": "Kavya.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Suyash Jain",
+                    "role": "Jr. Media Associate",
+                    "image": "Suyash Vasal Jain - Jr. Media Associate.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Web Development Team",
+            "members": [
+                {
+                    "name": "Rohit Manna",
+                    "role": "Web Development Head",
+                    "image": "Rohit_Manna.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Harshwardhan Trivedi",
+                    "role": "Web Development Associate",
+                    "image": "Harshwardhan.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Astha Padmawar",
+                    "role": "Jr. Web Dev Associate",
+                    "image": "Astha.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        }
+    ],
+    "2023": [
+        {
+            "title": "Core Team",
+            "members": [
+                {
+                    "name": "Atharva Gour",
+                    "role": "Club President",
+                    "image": "Atharva.jpg",
+                    "email": "atharvagour07@gmail.com",
+                    "linkedin": "https://www.linkedin.com/in/atharva-gour",
+                    "github": "https://github.com/Atharva708"
+                },
+                {
+                    "name": "Jay Jain",
+                    "role": "Club Vice President",
+                    "image": "JayJain.jpeg",
+                    "email": "",
+                    "linkedin": "https://www.linkedin.com/in/j-jay",
+                    "github": ""
+                },
+                {
+                    "name": "Akshat Thakkar",
+                    "role": "Tech Lead",
+                    "image": "AkshatThakkar.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Management Team",
+            "members": [
+                {
+                    "name": "Kushagra Rathore",
+                    "role": "Management Head",
+                    "image": "Kushagraha_Rathore.PNG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Daksh Joshi",
+                    "role": "Management Associate",
+                    "image": "Daksh_Joshi.JPG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aryan Choudhary",
+                    "role": "Jr. Management Associate",
+                    "image": "Aryan Choudhary - Jr. Management Associate.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Marketing Team",
+            "members": [
+                {
+                    "name": "Harshita Maheshwari",
+                    "role": "Marketing Head",
+                    "image": "Harshita.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Darshil Khandelwal",
+                    "role": "Marketing Associate",
+                    "image": "Darshil.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aditi Nigam",
+                    "role": "Jr. Marketing Associate",
+                    "image": "Aditi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Media Team",
+            "members": [
+                {
+                    "name": "Riddhi Bhawsar",
+                    "role": "Media Head",
+                    "image": "Riddhi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Kavya Joshi",
+                    "role": "Media Associate",
+                    "image": "Kavya.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Suyash Jain",
+                    "role": "Jr. Media Associate",
+                    "image": "Suyash Vasal Jain - Jr. Media Associate.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Web Development Team",
+            "members": [
+                {
+                    "name": "Rohit Manna",
+                    "role": "Web Development Head",
+                    "image": "Rohit_Manna.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Harshwardhan Trivedi",
+                    "role": "Web Development Associate",
+                    "image": "Harshwardhan.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Astha Padmawar",
+                    "role": "Jr. Web Dev Associate",
+                    "image": "Astha.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        }
+    ],
+    "2022": [
+        {
+            "title": "Core Team",
+            "members": [
+                {
+                    "name": "Atharva Gour",
+                    "role": "Club President",
+                    "image": "Atharva.jpg",
+                    "email": "atharvagour07@gmail.com",
+                    "linkedin": "https://www.linkedin.com/in/atharva-gour",
+                    "github": "https://github.com/Atharva708"
+                },
+                {
+                    "name": "Jay Jain",
+                    "role": "Club Vice President",
+                    "image": "JayJain.jpeg",
+                    "email": "",
+                    "linkedin": "https://www.linkedin.com/in/j-jay",
+                    "github": ""
+                },
+                {
+                    "name": "Akshat Thakkar",
+                    "role": "Tech Lead",
+                    "image": "AkshatThakkar.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Management Team",
+            "members": [
+                {
+                    "name": "Kushagra Rathore",
+                    "role": "Management Head",
+                    "image": "Kushagraha_Rathore.PNG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Daksh Joshi",
+                    "role": "Management Associate",
+                    "image": "Daksh_Joshi.JPG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aryan Choudhary",
+                    "role": "Jr. Management Associate",
+                    "image": "Aryan Choudhary - Jr. Management Associate.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Marketing Team",
+            "members": [
+                {
+                    "name": "Harshita Maheshwari",
+                    "role": "Marketing Head",
+                    "image": "Harshita.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Darshil Khandelwal",
+                    "role": "Marketing Associate",
+                    "image": "Darshil.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aditi Nigam",
+                    "role": "Jr. Marketing Associate",
+                    "image": "Aditi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Media Team",
+            "members": [
+                {
+                    "name": "Riddhi Bhawsar",
+                    "role": "Media Head",
+                    "image": "Riddhi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Kavya Joshi",
+                    "role": "Media Associate",
+                    "image": "Kavya.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Suyash Jain",
+                    "role": "Jr. Media Associate",
+                    "image": "Suyash Vasal Jain - Jr. Media Associate.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Web Development Team",
+            "members": [
+                {
+                    "name": "Rohit Manna",
+                    "role": "Web Development Head",
+                    "image": "Rohit_Manna.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Harshwardhan Trivedi",
+                    "role": "Web Development Associate",
+                    "image": "Harshwardhan.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Astha Padmawar",
+                    "role": "Jr. Web Dev Associate",
+                    "image": "Astha.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        }
+    ],
+    "2021": [
+        {
+            "title": "Core Team",
+            "members": [
+                {
+                    "name": "Atharva Gour",
+                    "role": "Club President",
+                    "image": "Atharva.jpg",
+                    "email": "atharvagour07@gmail.com",
+                    "linkedin": "https://www.linkedin.com/in/atharva-gour",
+                    "github": "https://github.com/Atharva708"
+                },
+                {
+                    "name": "Jay Jain",
+                    "role": "Club Vice President",
+                    "image": "JayJain.jpeg",
+                    "email": "",
+                    "linkedin": "https://www.linkedin.com/in/j-jay",
+                    "github": ""
+                },
+                {
+                    "name": "Akshat Thakkar",
+                    "role": "Tech Lead",
+                    "image": "AkshatThakkar.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Management Team",
+            "members": [
+                {
+                    "name": "Kushagra Rathore",
+                    "role": "Management Head",
+                    "image": "Kushagraha_Rathore.PNG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Daksh Joshi",
+                    "role": "Management Associate",
+                    "image": "/pics/Daksh_Joshi.JPG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aryan Choudhary",
+                    "role": "Jr. Management Associate",
+                    "image": "/pics/Aryan Choudhary - Jr. Management Associate.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Marketing Team",
+            "members": [
+                {
+                    "name": "Harshita Maheshwari",
+                    "role": "Marketing Head",
+                    "image": "/pics/Harshita.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Darshil Khandelwal",
+                    "role": "Marketing Associate",
+                    "image": "/pics/Darshil.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aditi Nigam",
+                    "role": "Jr. Marketing Associate",
+                    "image": "/pics/Aditi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Media Team",
+            "members": [
+                {
+                    "name": "Riddhi Bhawsar",
+                    "role": "Media Head",
+                    "image": "/pics/Riddhi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Kavya Joshi",
+                    "role": "Media Associate",
+                    "image": "/pics/Kavya.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Suyash Jain",
+                    "role": "Jr. Media Associate",
+                    "image": "/pics/Suyash Vasal Jain - Jr. Media Associate.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Web Development Team",
+            "members": [
+                {
+                    "name": "Rohit Manna",
+                    "role": "Web Development Head",
+                    "image": "/pics/Rohit_Manna.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Harshwardhan Trivedi",
+                    "role": "Web Development Associate",
+                    "image": "/pics/Harshwardhan.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Astha Padmawar",
+                    "role": "Jr. Web Dev Associate",
+                    "image": "/pics/Astha.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        }
+    ],
+    "2020": [
+        {
+            "title": "Core Team",
+            "members": [
+                {
+                    "name": "Atharva Gour",
+                    "role": "Club President",
+                    "image": "/pics/Atharva.jpg",
+                    "email": "atharvagour07@gmail.com",
+                    "linkedin": "https://www.linkedin.com/in/atharva-gour",
+                    "github": "https://github.com/Atharva708"
+                },
+                {
+                    "name": "Jay Jain",
+                    "role": "Club Vice President",
+                    "image": "/pics/JayJain.jpeg",
+                    "email": "",
+                    "linkedin": "https://www.linkedin.com/in/j-jay",
+                    "github": ""
+                },
+                {
+                    "name": "Akshat Thakkar",
+                    "role": "Tech Lead",
+                    "image": "/pics/AkshatThakkar.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Management Team",
+            "members": [
+                {
+                    "name": "Kushagra Rathore",
+                    "role": "Management Head",
+                    "image": "/pics/Kushagraha_Rathore.PNG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Daksh Joshi",
+                    "role": "Management Associate",
+                    "image": "/pics/Daksh_Joshi.JPG",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aryan Choudhary",
+                    "role": "Jr. Management Associate",
+                    "image": "/pics/Aryan Choudhary - Jr. Management Associate.jpeg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Marketing Team",
+            "members": [
+                {
+                    "name": "Harshita Maheshwari",
+                    "role": "Marketing Head",
+                    "image": "/pics/Harshita.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Darshil Khandelwal",
+                    "role": "Marketing Associate",
+                    "image": "/pics/Darshil.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Aditi Nigam",
+                    "role": "Jr. Marketing Associate",
+                    "image": "/pics/Aditi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Media Team",
+            "members": [
+                {
+                    "name": "Riddhi Bhawsar",
+                    "role": "Media Head",
+                    "image": "/pics/Riddhi.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Kavya Joshi",
+                    "role": "Media Associate",
+                    "image": "/pics/Kavya.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Suyash Jain",
+                    "role": "Jr. Media Associate",
+                    "image": "/pics/Suyash Vasal Jain - Jr. Media Associate.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        },
+        {
+            "title": "Web Development Team",
+            "members": [
+                {
+                    "name": "Rohit Manna",
+                    "role": "Web Development Head",
+                    "image": "/pics/Rohit_Manna.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Harshwardhan Trivedi",
+                    "role": "Web Development Associate",
+                    "image": "/pics/Harshwardhan.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                },
+                {
+                    "name": "Astha Padmawar",
+                    "role": "Jr. Web Dev Associate",
+                    "image": "Astha.jpg",
+                    "email": "",
+                    "linkedin": "",
+                    "github": ""
+                }
+            ]
+        }
+    ]
+}

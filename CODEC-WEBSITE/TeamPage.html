@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CODEC Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#6A8DFF",
+            secondary: "#F78CA0",
+          },
+          borderRadius: {
+            none: "0px",
+            sm: "4px",
+            DEFAULT: "8px",
+            md: "12px",
+            lg: "16px",
+            xl: "20px",
+            "2xl": "24px",
+            "3xl": "32px",
+            full: "9999px",
+            button: "8px",
+          },
+        },
+      },
+    };
+
+    window.onload = function () {
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 100, density: { enable: true, value_area: 600 } },
+          color: { value: "#6A8DFF" },
+          shape: { type: "circle" },
+          opacity: { value: 0.7, random: true },
+          size: { value: 4, random: true },
+          line_linked: {
+            enable: true,
+            distance: 120,
+            color: "#F78CA0",
+            opacity: 0.5,
+            width: 2,
+          },
+          move: {
+            enable: true,
+            speed: 1.2,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+          },
+        },
+        interactivity: {
+          detect_on: "window",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" },
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 1 } },
+            push: { particles_nb: 5 },
+          },
+        },
+        retina_detect: true,
+      });
+    };
+  </script>
+
+  <style>
+/* ============================================= */
+/*                 CSS RESET & BASE               */
+/* ============================================= */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Color Variables */
+  --primary-color: #a64ac9;
+  --secondary-color: #f47ce8;
+  --accent-color: #ffcc00;
+  --dark-bg: #000000;
+  --darker-bg: #111111;
+  --text-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  line-height: 1.6;
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* ============================================= */
+/*                 TYPOGRAPHY                     */
+/* ============================================= */
+.orbitron-title {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #6a8dff, #f78ca0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================= */
+/*                 ANIMATIONS                     */
+/* ============================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bg-particle-float {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+@keyframes cursor-particle-float {
+  to {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+/* ============================================= */
+/*                 LAYOUT & COMPONENTS            */
+/* ============================================= */
+/* Header Styles */
+header {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(244, 124, 232, 0.5);
+  transition: all 0.3s ease;
+}
+
+.logo-text:hover {
+  text-shadow: 0 0 15px rgba(244, 124, 232, 0.8);
+}
+
+.logo-text span {
+  color: var(--primary-color);
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-icon:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Navigation Menu */
+nav {
+  display: flex;
+}
+
+#nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+
+#nav-links li {
+  position: relative;
+}
+
+#nav-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  display: block;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+#nav-links li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
+}
+
+#nav-links li:hover::before,
+#nav-links li:focus-within::before {
+  width: 100%;
+}
+
+#nav-links li:hover a,
+#nav-links li:focus-within a {
+  color: var(--secondary-color);
+  text-shadow: 0 0 5px rgba(244, 124, 232, 0.7);
+}
+
+#nav-links li a.active {
+  color: var(--secondary-color);
+  text-shadow: 0 0 5px rgba(244, 124, 232, 0.7);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--darker-bg);
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border: 1px solid rgba(166, 74, 201, 0.3);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(166, 74, 201, 0.1);
+  color: var(--secondary-color);
+  transform: translateX(5px);
+}
+
+/* Burger Menu */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  z-index: 101;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.burger:hover {
+  transform: scale(1.1);
+}
+
+.burger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.burger.active .burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active .burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* About Header */
+.about-header {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  animation: fadeIn 1s ease-out;
+}
+
+.about-header-image {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("CODECBACKGROUND.webp") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.about-header-image h1 {
+  font-size: 4rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(148, 71, 177, 0.8);
+  font-family: "Poppins", sans-serif;
+  animation: pulse 3s infinite ease-in-out;
+  margin-bottom: 20px;
+}
+
+.about-header-image p {
+  font-size: 1.25rem;
+  max-width: 700px;
+  color: #ddd;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Styles */
+.card {
+  perspective: 1000px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1.5s ease-in-out;
+}
+
+.card:hover .content {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 1.5s ease-in-out;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+/* Gradient Styles */
+.gradient-border {
+  border: 2px solid transparent;
+  background: linear-gradient(#0f172a, #0f172a) padding-box,
+    linear-gradient(45deg, #6a8dff, #f78ca0) border-box;
+}
+
+.gradient-border-text-glow:hover {
+  background: linear-gradient(45deg, rgb(46, 94, 251), rgb(255, 62, 98)) padding-box,
+    linear-gradient(45deg, #ffffff, #000000) border-box;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px transparent;
+  -webkit-text-fill-color: white;
+  text-shadow: 0 0 10px rgba(255, 62, 98, 0.8),
+    0 0 20px rgba(46, 94, 251, 0.8);
+}
+
+.gradient-bg {
+  background: linear-gradient(45deg,
+      rgba(106, 141, 255, 0.15),
+      rgba(247, 140, 160, 0.15));
+}
+
+.gradient-bg-opaque {
+  background: linear-gradient(45deg,
+      rgb(106, 141, 255),
+      rgb(247, 140, 160));
+}
+
+.gradient-glow {
+  box-shadow: 0 0 15px rgba(106, 141, 255, 0.5),
+    0 0 25px rgba(247, 140, 160, 0.5);
+}
+
+/* Particles Background */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  background-color: var(--dark-bg);
+}
+
+.particle-container,
+.bg-particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle-container {
+  z-index: 9998;
+}
+
+.bg-particle-container {
+  z-index: -1;
+}
+
+.bg-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: bg-particle-float linear infinite;
+  will-change: transform;
+  background-color: hsla(280, 80%, 70%, 0.2);
+}
+
+.cursor-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: cursor-particle-float 1s ease-out forwards;
+  will-change: transform;
+  background-color: hsla(280, 80%, 70%, 0.8);
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(166, 74, 201, 0.2);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+/* Scroll Animation */
+[data-scroll] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-scroll].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  margin-top: auto;
+  border-top: 1px solid rgba(166, 74, 201, 0.2);
+  animation: fadeIn 0.8s ease-out 0.6s both;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(166, 74, 201, 0.05),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-section h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 3px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.footer-links a:hover {
+  color: var(--secondary-color);
+  transform: translateX(5px);
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--darker-bg);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-links a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-links a:hover::before {
+  opacity: 1;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(166, 74, 201, 0.3);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(166, 74, 201, 0.1);
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.newsletter {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: transparent;
+  color: var(--text-color);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.newsletter input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(166, 74, 201, 0.3);
+}
+
+/* ============================================= */
+/*               MOBILE STYLES                   */
+/* ============================================= */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  header {
+    padding: 1rem;
+  }
+
+  /* About Header */
+  .about-header {
+    height: 300px;
+    margin-top: 60px;
+  }
+
+  .about-header-image h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-header-image p {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+
+  /* Burger menu */
+  .burger {
+    display: flex;
+  }
+
+  /* Navigation */
+  #nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    transition: right 0.3s ease-in-out;
+    margin: 0;
+    padding: 0;
+    backdrop-filter: blur(10px);
+  }
+
+  #nav-links.show {
+    right: 0;
+  }
+
+  #nav-links li::before {
+    height: 1px;
+    bottom: -5px;
+  }
+
+  .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  /* Container adjustments */
+  .container {
+    padding: 0 1rem;
+    gap: 30px;
+    margin: 1rem auto;
+  }
+
+  /* Timeline adjustments */
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+  }
+
+  .timeline-content, .timeline-image {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .timeline-dot {
+    left: 20px;
+  }
+
+  /* Mission and Culture grids */
+  .mission-grid, .culture-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer adjustments */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-section h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .newsletter {
+    flex-direction: column;
+  }
+}
+
+      /* ============================================= */
+      /*                  FOOTER                       */
+      /* ============================================= */
+      .footer {
+        background-color: var(--dark-bg);
+        color: var(--text-color);
+        padding: 40px 20px;
+        font-family: "Poppins", sans-serif;
+        position: relative;
+        margin-top: auto;
+        border-top: 1px solid rgba(166, 74, 201, 0.2);
+        animation: fadeIn 0.8s ease-out 0.6s both;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at center,
+          rgba(166, 74, 201, 0.05),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .footer-section h3 {
+        color: var(--secondary-color);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 3px;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        display: inline-block;
+        padding: 8px 0;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary-color);
+        transform: translateX(5px);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: var(--darker-bg);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-links a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .social-links a:hover::before {
+        opacity: 1;
+      }
+
+      .social-links a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(166, 74, 201, 0.3);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 30px;
+        border-top: 1px solid rgba(166, 74, 201, 0.1);
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      .newsletter {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .newsletter input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #333;
+        background-color: transparent;
+        color: var(--text-color);
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter input:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(166, 74, 201, 0.3);
+      }
+
+      /* ============================================= */
+/*             PARTICLES BACKGROUND              */
+/* ============================================= */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  background-color: var(--dark-bg);
+}
+
+/* Particle Containers */
+.particle-container,
+.bg-particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle-container {
+  z-index: 9998;
+}
+
+.bg-particle-container {
+  z-index: -1;
+}
+
+/* Background Particles */
+.bg-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: bg-particle-float linear infinite;
+  will-change: transform;
+  background-color: hsla(280, 80%, 70%, 0.2);
+}
+
+@keyframes bg-particle-float {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+/* Cursor Particles */
+.cursor-particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: cursor-particle-float 1s ease-out forwards;
+  will-change: transform;
+  background-color: hsla(280, 80%, 70%, 0.8);
+}
+
+@keyframes cursor-particle-float {
+  to {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(166, 74, 201, 0.2);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+    /* Parallax scrolling effect */
+    body {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Scroll animation */
+    [data-scroll] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.6s ease-out, transform 0.6s ease-out;
+    }
+
+    [data-scroll].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen relative">
+  <div id="particles-js" class="absolute top-0 left-0 w-full h-full -z-10"></div>
+  <header>
+    <div class="header-content">
+      <img src="Codec.png" alt="CODEC Club Logo" class="logo-icon" />
+      <h1 class="logo-text">COD<span>EC</span></h1>
+    </div>
+    <button class="burger" id="burger-button" aria-label="Menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <nav id="main-nav">
+      <ul id="nav-links">
+        <li><a href="HomePage.html" target="_blank">Home</a></li>
+        <li><a href="AboutUsPage.html" class="active" target="_blank">About</a></li>
+        <li><a href="TeamPage.html" target="_blank">Team</a></li>
+        <li><a href="EventsPage.html" target="_blank">Events</a></li>
+        <li><a href="ContactUsPage.html" target="_blank">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+        </div>
+        <div class="md:hidden">
+          <button class="text-gray-400 hover:text-white">
+            <i class="ri-menu-line text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <section id="team" class="py-28 bg-gray-800/50 px-4 sm:px-10 lg:px-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary leading-tight orbitron-title">
+            Meet Our Team <span id="active-year" class="text-secondary">2025</span>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mt-4 md:mt-6">
+              Meet the <span class="gradient-text font-medium">dedicated
+                individuals</span> driving our
+              vision forward.
+              Together, we innovate, inspire, and achieve.
+            </p>
+            </p>
+
+        </div>
+
+        <div id="team-container"
+          class="flex flex-col md:flex-row items-center justify-center w-full gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 justify-items-center">
+          <!-- Team sections will be injected here -->
+        </div>
+      </div>
+      <div class="pagination flex items-center justify-center gap-4 mt-8 fixed bottom-4 left-0 right-0"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>Email: contact@codecclub.edu</p>
+        <p>Phone: (555) 987-6543</p>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <div class="newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Empowering developers since 2017 • CODEC Community Foundation
+    </div>
+  </footer>
+
+</body>
+<script>
+  fetch("TeamPagejson.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const paginationContainer = document.querySelector(".pagination");
+      const teamContainer = document.getElementById("team-container");
+      const years = Object.keys(data).sort((a, b) => b - a);
+      let currentIndex = 0;
+      let activeYear = years[0];
+
+      function renderPagination() {
+        paginationContainer.innerHTML = `
+        <div class="flex justify-center items-center w-full">
+      <div class="relative w-full flex justify-center items-center">
+        <ul class="flex justify-center items-center p-0 m-0 relative z-10 max-w-7xl mx-auto space-x-4 bg-gray-900/70 backdrop-blur-md rounded-full py-2 px-6 shadow-lg border border-gray-700">
+        <li class="prev px-4 py-1 text-gray-400 font-bold cursor-pointer hover:text-gray-200 transition-all duration-300 ${currentIndex === 0 ? "opacity-50 cursor-not-allowed" : ""
+          }">
+          <i class="ri-arrow-left-s-line text-xl"></i>
+        </li>
+        ${currentIndex > 0
+            ? `<li class="ellipsis px-4 py-1 text-gray-400 font-bold">...</li>`
+            : ""
+          }
+        ${years
+            .slice(currentIndex, currentIndex + 3)
+            .map(
+              (year) => `
+          <li class="page-number px-4 py-1 text-center font-bold cursor-pointer transition-all duration-300 relative ${year === activeYear
+                  ? "text-white"
+                  : "text-gray-500 hover:text-gray-200"
+                }" data-year="${year}">
+            ${year}
+            <span class="absolute left-0 bottom-0 h-[2px] bg-gradient-to-r to-pink-500 from-blue-500 transition-all duration-500 ease-in-out transform ${year === activeYear ? "w-full scale-x-100" : "w-0 scale-x-0"}"></span>
+          </li>
+        `
+            )
+            .join("")}         
+               ${currentIndex + 3 < years.length
+            ? `<li class="ellipsis px-4 py-1 text-gray-400 font-bold">...</li>`
+            : ""
+          }
+        <li class="next px-4 py-1 text-gray-400 font-bold cursor-pointer hover:text-gray-200 transition-all duration-300 ${currentIndex + 3 >= years.length
+            ? "opacity-50 cursor-not-allowed"
+            : ""
+          }">
+          <i class="ri-arrow-right-s-line text-xl"></i>
+        </li>
+        </ul>
+        <div class="underline absolute bottom-0 h-[2px] bg-gradient-to-r from-blue-500 to-pink-500 transition-all duration-500 ease-in-out"></div>
+      </div>
+        </div>
+        `;
+
+        const underline = document.querySelector(".underline");
+        const activePage = document.querySelector(".page-number.text-white");
+        if (activePage) {
+          const rect = activePage.getBoundingClientRect();
+          const containerRect = paginationContainer.getBoundingClientRect();
+          underline.style.transition = "left 0.5s ease, width 0.5s ease"; // Add smooth transition
+          underline.style.width = `${rect.width}px`;
+          underline.style.left = `${rect.left - containerRect.left}px`;
+        }
+
+        addEventListeners();
+      }
+
+      function addEventListeners() {
+        document
+          .querySelector(".prev")
+          .addEventListener("click", () => {
+            if (currentIndex > 0) {
+              currentIndex--;
+              renderPagination();
+            }
+          });
+
+        document
+          .querySelector(".next")
+          .addEventListener("click", () => {
+            if (currentIndex + 3 < years.length) {
+              currentIndex++;
+              renderPagination();
+            }
+          });
+
+        document.querySelectorAll(".page-number").forEach((page) => {
+          page.addEventListener("click", (e) => {
+            activeYear = e.target.getAttribute("data-year"); // Update active year
+            renderPagination();
+            updateTeamData(activeYear);
+          });
+        });
+      }
+
+      function updateTeamData(year) {
+        document.getElementById("active-year").textContent = year; // Update the displayed year
+
+        teamContainer.innerHTML = "";
+        if (data[year]) {
+          data[year].forEach((team) => {
+            const teamWrapper = document.createElement("div");
+            teamWrapper.classList.add(
+              "grid",
+              "group",
+              "grid-cols-1",
+              "md:grid-cols-4",
+              "gap-6",
+              "items-center",
+              "justify-center",
+              "w-full"
+            );
+
+            const titleBlock = document.createElement("div");
+            titleBlock.classList.add("text-center", "md:col-span-1");
+            titleBlock.innerHTML = `
+            <h1 class="orbitron-title text-3xl md:text-4xl lg:text-4xl font-extrabold tracking-wide glow-text transition-transform duration-500 transform group-hover:scale-110">${team.title}</h1>
+            <div class="w-20 h-1 gradient-bg-opaque mx-auto mt-2 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+        `;
+            teamWrapper.appendChild(titleBlock);
+
+            if (Array.isArray(team.members)) {
+              team.members.forEach((member) => {
+                const card = document.createElement("div");
+                card.classList.add(
+                  "card",
+                  "w-40",
+                  "h-40",
+                  "md:w-48",
+                  "md:h-48",
+                  "lg:w-56",
+                  "lg:h-56"
+                );
+                card.innerHTML = `
+                    <div class="content transition-transform duration-1000 ease-in-out">
+                        <div class="front flex items-center justify-center">
+                            <img src="${member.image}" alt="${member.name}" class="gradient-glow gradient-border w-5/6 h-5/6 object-cover rounded-lg" />
+                        </div>
+                        <div class="gradient-border back bg-gray-900/90 text-center flex flex-col items-center justify-center rounded-lg relative">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-30 blur-md"
+                                style="background-image: url('${member.image}')"></div>
+
+                            <h3 class="text-white font-bold relative">${member.name}</h3>
+                            <p class="text-gray-300 text-sm relative">${member.role}</p>
+                            <div class="flex gap-3 mt-2 relative">
+                                <a href="mailto:${member.email}" class="text-gray-400 hover:text-primary">
+                                    <i class="ri-mail-line text-lg"></i>
+                                </a>
+                                <a href="${member.linkedin}" class="text-gray-400 hover:text-primary">
+                                    <i class="ri-linkedin-line text-lg"></i>
+                                </a>
+                                <a href="${member.github}" class="text-gray-400 hover:text-primary">
+                                    <i class="ri-code-line text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                teamWrapper.appendChild(card);
+              });
+            }
+            teamContainer.appendChild(teamWrapper);
+          });
+        }
+      }
+
+      renderPagination();
+      updateTeamData(years[0]);
+    })
+    .catch((error) => console.error("Error loading team data:", error));
+
+    /* ============================================= */
+        /*              CURSOR PARTICLES                 */
+        /* ============================================= */
+
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+
+          // Update cursor position
+          cursor.style.left = `${mouseX}px`;
+          cursor.style.top = `${mouseY}px`;
+
+          // Create particles (reduced frequency for performance)
+          if (Math.random() > 0.3) {
+            createParticle(mouseX, mouseY);
+          }
+        });
+
+        function createParticle(x, y) {
+          const particle = document.createElement("div");
+          particle.className = "cursor-particle";
+
+          // Random direction and distance
+          const angle = Math.random() * Math.PI * 2;
+          const distance = 5 + Math.random() * 15;
+          const tx = Math.cos(angle) * distance;
+          const ty = Math.sin(angle) * distance;
+
+          // Random size and color variation
+          const size = 3 + Math.random() * 5;
+          const hue = 280 + Math.random() * 40; // Purple/pink range
+
+          particle.style.cssText = `
+      --tx: ${tx}px;
+      --ty: ${ty}px;
+      left: ${x}px;
+      top: ${y}px;
+      width: ${size}px;
+      height: ${size}px;
+      background-color: hsla(${hue}, 80%, 70%, 0.8);
+    `;
+
+          particleContainer.appendChild(particle);
+
+          // Remove after animation completes
+          setTimeout(() => {
+            particle.remove();
+          }, 1000);
+        }
+
+         /* ============================================= */
+        /*              ENHANCED CURSOR EFFECT           */
+        /* ============================================= */
+
+        // Create main cursor trail
+        const cursor = document.createElement("div");
+        cursor.className = "cursor-trail";
+        document.body.appendChild(cursor);
+
+        // Create particle container
+        const particleContainer = document.createElement("div");
+        particleContainer.className = "particle-container";
+        document.body.appendChild(particleContainer);
+
+        // Create background particle container
+        const bgParticleContainer = document.createElement("div");
+        bgParticleContainer.className = "bg-particle-container";
+        document.body.appendChild(bgParticleContainer);
+
+        // Track mouse position
+        let mouseX = 0;
+        let mouseY = 0;
+
+        /* ============================================= */
+        /*              BACKGROUND PARTICLES             */
+        /* ============================================= */
+
+        // Create initial background particles (increased count)
+        function createBackgroundParticles() {
+          const particleCount = 100; // Increased from original
+
+          for (let i = 0; i < particleCount; i++) {
+            const bgParticle = document.createElement("div");
+            bgParticle.className = "bg-particle";
+
+            // Random position
+            const posX = Math.random() * window.innerWidth;
+            const posY = Math.random() * window.innerHeight;
+
+            // Random size (1px to 3px)
+            const size = 1 + Math.random() * 2;
+
+            // Random animation duration (10s to 30s)
+            const duration = 10 + Math.random() * 20;
+
+            // Random delay (0s to 5s)
+            const delay = Math.random() * 5;
+
+            // Random movement direction
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 50 + Math.random() * 150;
+            const moveX = Math.cos(angle) * distance;
+            const moveY = Math.sin(angle) * distance;
+
+            // Apply styles
+            bgParticle.style.cssText = `
+        left: ${posX}px;
+        top: ${posY}px;
+        width: ${size}px;
+        height: ${size}px;
+        background-color: hsla(${280 + Math.random() * 40}, 80%, 70%, ${
+              0.2 + Math.random() * 0.3
+            });
+        animation-duration: ${duration}s;
+        animation-delay: ${delay}s;
+        transform: translate(${moveX}px, ${moveY}px);
+      `;
+
+            bgParticleContainer.appendChild(bgParticle);
+          }
+        }
+
+
+</script>
+</html>

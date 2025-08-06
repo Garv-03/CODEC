@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codec Club Leaderboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #9D4EDD;
+            --secondary: #5A189A;
+            --dark: #240046;
+            --light: #E0AAFF;
+            --gold: #FFD700;
+            --silver: #C0C0C0;
+            --bronze: #CD7F32;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--dark), var(--secondary), var(--primary));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            perspective: 1000px;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(36, 0, 70, 0.8);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(224, 170, 255, 0.2);
+        }
+        
+        .nav-back {
+            background: rgba(224, 170, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(224, 170, 255, 0.3);
+            text-decoration: none;
+        }
+        
+        .nav-back:hover {
+            background: rgba(224, 170, 255, 0.2);
+            transform: translateX(-3px);
+        }
+        
+        .nav-back i {
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-back:hover i {
+            transform: translateX(-3px);
+        }
+        
+        .nav-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: linear-gradient(to right, var(--light), white);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .leaderboard-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+            padding: 80px 20px 40px;
+            perspective: 1000px;
+        }
+        
+        .leaderboard {
+            width: 100%;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .leaderboard::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .leaderboard:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            object-fit: contain;
+            border: 3px solid var(--light);
+            box-shadow: 0 0 20px var(--primary);
+            animation: pulse 2s infinite alternate, float 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 0 30px var(--light);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px var(--primary); }
+            100% { box-shadow: 0 0 30px var(--light); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        h2 {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--light), white);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(157, 78, 221, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--light), transparent);
+            border-radius: 3px;
+            animation: linePulse 2s infinite;
+        }
+        
+        @keyframes linePulse {
+            0%, 100% { width: 50px; opacity: 1; }
+            50% { width: 80px; opacity: 0.8; }
+        }
+        
+        .leaderboard ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .leaderboard li {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid transparent;
+        }
+        
+        .leaderboard li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .leaderboard li:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .leaderboard li:hover {
+            transform: translateX(10px);
+            background-color: rgba(255, 255, 255, 0.2);
+            border-left: 4px solid var(--light);
+        }
+        
+        .leaderboard li span:first-child {
+            font-weight: bold;
+            text-align: left;
+            flex: 1;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .leaderboard li span:last-child {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .leaderboard li:nth-child(1) {
+            border-left: 4px solid var(--gold);
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
+        }
+        
+        .leaderboard li:nth-child(2) {
+            border-left: 4px solid var(--silver);
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.1), transparent);
+        }
+        
+        .leaderboard li:nth-child(3) {
+            border-left: 4px solid var(--bronze);
+            background: linear-gradient(90deg, rgba(205, 127, 50, 0.1), transparent);
+        }
+        
+        .rank-icon {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+        
+        .leaderboard li:nth-child(1) .rank-icon {
+            color: var(--gold);
+        }
+        
+        .leaderboard li:nth-child(2) .rank-icon {
+            color: var(--silver);
+        }
+        
+        .leaderboard li:nth-child(3) .rank-icon {
+            color: var(--bronze);
+        }
+        
+        .trophy {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .trophy-1 { top: 20%; left: 10%; animation: float 4s ease-in-out infinite; }
+        .trophy-2 { top: 60%; right: 15%; animation: float 5s ease-in-out infinite 1s; }
+        .trophy-3 { bottom: 10%; left: 20%; animation: float 6s ease-in-out infinite 0.5s; }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+        }
+        
+        .quiz-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .quiz-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .quiz-btn:hover::before {
+            left: 100%;
+        }
+        
+        .quiz-btn.active {
+            background: linear-gradient(45deg, var(--primary), var(--light));
+            box-shadow: 0 0 15px var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .quiz-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .animate {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        .animate-delay-4 { animation-delay: 0.8s; }
+        .animate-delay-5 { animation-delay: 1s; }
+        
+        @media (max-width: 768px) {
+            .leaderboard-container {
+                padding: 70px 10px 30px;
+            }
+            
+            .leaderboard {
+                padding: 15px;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .quiz-toggle {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="Eventspage.html" class="nav-back">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back</span>
+        </a>
+        <div class="nav-title">Codec Club Leaderboard</div>
+        <div style="width: 80px;"></div> <!-- Spacer -->
+    </nav>
+    
+    <div class="particles" id="particles-js"></div>
+    
+    <div class="leaderboard-container">
+        <img src="Codec.png" alt="Codec Club Logo" class="logo animate">
+        
+        <div class="quiz-toggle">
+            <button class="quiz-btn active" id="quiz1-btn">Quiz 1</button>
+            <button class="quiz-btn" id="quiz2-btn">Quiz 2</button>
+            <button class="quiz-btn" id="quiz3-btn">Quiz 3</button>
+        </div>
+        
+        <div class="leaderboard" id="quiz1-leaderboard">
+            <h2>Bi-Weekly Quiz 1 Leaderboard</h2>
+            <i class="fas fa-trophy trophy trophy-1"></i>
+            <i class="fas fa-medal trophy trophy-2"></i>
+            <i class="fas fa-award trophy trophy-3"></i>
+            
+            <ul>
+                <li class="animate">
+                    <i class="fas fa-crown rank-icon"></i>
+                    <span>1. Bilal Ahmad Khan</span>
+                    <span>32674 P</span>
+                </li>
+                <li class="animate animate-delay-1">
+                    <i class="fas fa-medal rank-icon"></i>
+                    <span>2. Anadi</span>
+                    <span>31877 P</span>
+                </li>
+                <li class="animate animate-delay-2">
+                    <i class="fas fa-medal rank-icon"></i>
+                    <span>3. Harsh Kale</span>
+                    <span>31290 P</span>
+                </li>
+                <li class="animate animate-delay-3">
+                    <span>4. Aman Jain</span>
+                    <span>31253 P</span>
+                </li>
+                <li class="animate animate-delay-4">
+                    <span>5. Astha</span>
+                    <span>30990 P</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="leaderboard" id="quiz2-leaderboard" style="display: none;">
+            <h2>Bi-Weekly Quiz 2 Leaderboard</h2>
+            <i class="fas fa-trophy trophy trophy-1"></i>
+            <i class="fas fa-medal trophy trophy-2"></i>
+            <i class="fas fa-award trophy trophy-3"></i>
+            
+            <ul>
+                <li class="animate">
+                    <i class="fas fa-crown rank-icon"></i>
+                    <span>1. Garv Sharma</span>
+                    <span>Coming Soon</span>
+                </li>
+                <li class="animate animate-delay-1">
+                    <i class="fas fa-medal rank-icon"></i>
+                    <span>2. Garima Tiwanker</span>
+                    <span>Coming Soon</span>
+                </li>
+                <li class="animate animate-delay-2">
+                    <i class="fas fa-medal rank-icon"></i>
+                    <span>3. Twinkle Ramchandani</span>
+                    <span>Coming Soon</span>
+                </li>
+                <li class="animate animate-delay-3">
+                    <span>4. Avani Jain</span>
+                    <span>Coming Soon</span>
+                </li>
+                <li class="animate animate-delay-4">
+                    <span>5. Dhruvi Namdeo</span>
+                    <span>Coming Soon</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="leaderboard" id="quiz3-leaderboard" style="display: none;">
+            <h2>Bi-Weekly Quiz 3 Leaderboard</h2>
+            <i class="fas fa-trophy trophy trophy-1"></i>
+            <i class="fas fa-medal trophy trophy-2"></i>
+            <i class="fas fa-award trophy trophy-3"></i>
+            
+            <ul>
+                <!-- First Place Winners -->
+                <li class="animate">
+                    <i class="fas fa-crown rank-icon"></i>
+                    <span>1. Sandarb</span>
+                    <span>Top Score</span>
+                </li>
+                <li class="animate">
+                    <i class="fas fa-crown rank-icon"></i>
+                    <span>1. Vinay</span>
+                    <span>Top Score</span>
+                </li>
+                <li class="animate">
+                    <i class="fas fa-crown rank-icon"></i>
+                    <span>1. Naman</span>
+                    <span>Top Score</span>
+                </li>
+                
+                <!-- Second Place Winners -->
+                <li class="animate animate-delay-1">
+                    <i class="fas fa-medal rank-icon"></i>
+                    <span>2. Dhruvi</span>
+                    <span>Second Highest</span>
+                </li>
+                <li class="animate animate-delay-1">
+                    <i class="fas fa-medal rank-icon"></i>
+                    <span>2. Garima</span>
+                    <span>Second Highest</span>
+                </li>
+                <li class="animate animate-delay-1">
+                    <i class="fas fa-medal rank-icon"></i>
+                    <span>2. Chirayu</span>
+                    <span>Second Highest</span>
+                </li>
+                
+                <!-- Third Place Winners -->
+                <li class="animate animate-delay-2">
+                    <i class="fas fa-award rank-icon"></i>
+                    <span>3. Nishita</span>
+                    <span>Third Highest</span>
+                </li>
+                <li class="animate animate-delay-2">
+                    <i class="fas fa-award rank-icon"></i>
+                    <span>3. Priyal</span>
+                    <span>Third Highest</span>
+                </li>
+                <li class="animate animate-delay-2">
+                    <i class="fas fa-award rank-icon"></i>
+                    <span>3. Prashhati</span>
+                    <span>Third Highest</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Toggle between quizzes
+        const quiz1Btn = document.getElementById('quiz1-btn');
+        const quiz2Btn = document.getElementById('quiz2-btn');
+        const quiz3Btn = document.getElementById('quiz3-btn');
+        const quiz1Leaderboard = document.getElementById('quiz1-leaderboard');
+        const quiz2Leaderboard = document.getElementById('quiz2-leaderboard');
+        const quiz3Leaderboard = document.getElementById('quiz3-leaderboard');
+        
+        function showQuiz(quizToShow) {
+            // Hide all leaderboards
+            quiz1Leaderboard.style.display = 'none';
+            quiz2Leaderboard.style.display = 'none';
+            quiz3Leaderboard.style.display = 'none';
+            
+            // Remove active class from all buttons
+            quiz1Btn.classList.remove('active');
+            quiz2Btn.classList.remove('active');
+            quiz3Btn.classList.remove('active');
+            
+            // Show selected leaderboard and activate its button
+            quizToShow.style.display = 'block';
+            if (quizToShow === quiz1Leaderboard) {
+                quiz1Btn.classList.add('active');
+            } else if (quizToShow === quiz2Leaderboard) {
+                quiz2Btn.classList.add('active');
+            } else {
+                quiz3Btn.classList.add('active');
+            }
+            
+            createConfetti();
+        }
+        
+        quiz1Btn.addEventListener('click', () => showQuiz(quiz1Leaderboard));
+        quiz2Btn.addEventListener('click', () => showQuiz(quiz2Leaderboard));
+        quiz3Btn.addEventListener('click', () => showQuiz(quiz3Leaderboard));
+        
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#E0AAFF" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#9D4EDD", opacity: 0.3, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+        
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+            const container = document.querySelector('.leaderboard-container');
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                container.appendChild(confetti);
+                
+                const animation = confetti.animate([
+                    { top: '-10px', opacity: 1, transform: `rotate(${Math.random() * 360}deg)` },
+                    { top: '100vh', opacity: 0, transform: `rotate(${Math.random() * 360}deg)` }
+                ], {
+                    duration: Math.random() * 3000 + 2000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.9, 1)'
+                });
+                
+                animation.onfinish = () => confetti.remove();
+            }
+        }
+        
+        // Animate items sequentially
+        function animateItems() {
+            const items = document.querySelectorAll('.animate');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        }
+        
+        // Initialize animations
+        window.addEventListener('load', () => {
+            animateItems();
+            
+            // Animate leaderboard on hover
+            const leaderboards = document.querySelectorAll('.leaderboard');
+            leaderboards.forEach(board => {
+                board.addEventListener('mouseenter', () => {
+                    board.style.transform = 'translateY(-5px) rotateX(5deg)';
+                });
+                
+                board.addEventListener('mouseleave', () => {
+                    board.style.transform = 'translateY(0) rotateX(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
